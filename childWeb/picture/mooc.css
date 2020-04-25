@@ -5,7 +5,9 @@
 .first{
     height:72px;
     width:100%;
-    background:#ccc;
+    box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);/*慕课网复制给div下面加边框，目前不懂*/
+    
+
 }
 .first-one{
     height:72px;
@@ -15,15 +17,15 @@
     float:left;
 }
 .first-two{
-    background: #ccc;
+    
     height:72px;
-    width:510px;
+    width:400px;
     margin:0px 10px;
     float:left;
 }
 .first-two-list{
     display:inline;
-    font-size:16px;
+    font-size:14px;
     font-family:"Microsoft YaHei";
     line-height:72px;
     color:#4D555d;
@@ -32,13 +34,46 @@
     
    
 }
+
 .first-three{
-    height:40px;
+    height:72px;
     width:324px;
     line-height:72px;
     float:left;
+    
 }
-
+.first-three-frame{
+    width:284px;
+    height:40px;
+    background-color:#E9E9E9;
+    border-radius:5px 5px 5px 5px;/*设置div四个角为原型*/
+    margin:16px 0px;
+}
+.first-three-text{
+    width:260px;
+    height:24px;
+    font-size:14px;
+    color:#A6A6A6;
+    background-color:rgba(255, 255, 255,0.05);
+    position:relative;
+    bottom:17px;
+    left:5px;
+}
+.first-three-python{
+    font-size:14px;
+    font-family:"PingFang SC";
+    color:#545C63;
+    position:relative;
+    bottom:74px;
+    left:180px;
+}
+.first-four-magnifier{
+    width:20px;
+    height:20px;
+    position:relative;
+    bottom:140px;
+    left:264px;
+}
 
 .first-four{
     height:72px;
