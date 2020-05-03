@@ -5,9 +5,7 @@
 .first{
     height:72px;
     width:100%;
-    box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);/*慕课网复制给div下面加边框，目前不懂*/
-    
-
+    box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);/*慕课网复制给顶部加下边框及颜色，目前不懂*/
 }
 .first-one{
     height:72px;
@@ -29,18 +27,13 @@
     font-family:"Microsoft YaHei";
     line-height:72px;
     color:#4D555d;
-    padding:0px 10px;
-    
-    
-   
+    padding:0px 10px;   
 }
-
 .first-three{
     height:72px;
     width:324px;
     line-height:72px;
-    float:left;
-    
+    float:left;    
 }
 .first-three-frame{
     width:284px;
@@ -89,3 +82,52 @@
     line-height:72px;
     display:inline;
 }
+
+
+.second{
+    width:100%;
+    
+    
+    
+}
+.second-one{
+    width:100%;
+    margin:0px;
+    padding:104px 0px;
+}
+.second-one-frame{
+    width:100%;
+    
+}
+
+.second-one-frame-1{
+    width:216px;
+    height:365px;
+    margin:0px;
+    padding-top:17px;
+    border-radius:5px 0px 0px 5px;
+    background-color:#2B333D;
+    position:relative;
+    left:17%;
+}
+.second-one-frame-2{
+    width:180px;
+    height:50px;
+    margin-left:28px;
+}
+.second-one-frame-3{
+    font-family:"PingFang SC","微软雅黑";
+    font-size:15px;
+    line-height:50px;
+    color: rgba(255, 255, 255, 0.6);
+}
+.second-one-frame-4{
+    width: 0px;
+    height: 0px;
+    border-top: 5px solid transparent;/*transparent实验作用应该是连接未完成部分，这样就可以形成三角的尖头部位*/
+    border-left: 5px solid rgba(255, 255, 255, 0.6);
+    border-bottom: 5px solid transparent;
+    position:relative;
+    bottom:29px;
+    left:175px;
+}/*制作小三角图标*/
