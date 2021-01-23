@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+            //arguments 称为：可变参或者不定参   意思：参数是不固定的
+            function sum(){
+                //alert(arguments.length);      arguments是一个数组，内部存的是sum（）传给的参数，所以可弹出数组长度
+                var result=0;
+                //写循环，并把每个数都和result加上，然后再将result返回出来。达成不管多少数都能加成功的效果
+                for(var i=0;i<arguments.length;i++){
+                    result+=arguments[i];
+                }
+                return result;
+            }
+            alert(sum(13,54,34,64,46,57,86));
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

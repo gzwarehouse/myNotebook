@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            #div1{
+                width:200px;
+                height:200px;
+                background:red;
+            }
+        </style>
+        <script>
+            //知识点；什么时候用函数传参：当函数中有一部分定不下来时候，可以用。
+            //利用函数传参‘clolr’看作占位符，调用时需要什么参数写什么参数
+            /*
+            function show(a,b){
+                alert(a+b);
+            }
+            show(5,8)             函数传参可以传多个参数，参数运用亦可灵活使用；
+            */
+            function toColor(color){
+                var oDiv=document.getElementById('div1');
+                oDiv.style.background=color;
+            }
+            /*function toGreen(){ 注释中内容为复杂写法
+                var oDiv=document.getElementById('div1');
+                oDiv.style.background='green';
+            }
+            function toYellow(){
+                var oDiv=document.getElementById('div1');
+                oDiv.style.background='yellow';
+            }
+            function toBlack(){
+                var oDiv=document.getElementById('div1');
+                oDiv.style.background='black';
+            }*/
+        </script>
+    </head>
+    <body>
+        <input type="button" value='变绿' onclick="toColor('green')" />
+        <input type="button" value='变黄' onclick="toColor('yellow')"/>
+        <input type="button" value='变黑' onclick="toColor('black')"/>
+        <div id="div1"></div>
+    </body>
+</html>

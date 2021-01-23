@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+            var json={a:12,b:5,c:7};
+            var arr=[12,5,7];
+
+            //区别1：json的下标是字符串，数组的下标是数字；
+            /*alert(json['a']);      //正常情况下写（json.a），json是用来存数据的，放在json里的东西可以向变量一样操作
+            alert(arr[0])*/
+
+            //区别2：json没有length,在json里写了什么就是什么，无法判断长度，
+            /*alert(arr.length);
+            alert(json.length);*/
+
+            //区别3：循环，数组可用for和for in循环，json只能用for in循环
+            /*1，数组的for循环
+            for(var i=0;i<arr.length;i++){
+                alert('第'+i+'个东西：'+arr[i]);
+            }*/
+
+            /*2,数组的for in循环  ，for in循环可以不用length元素
+            for(var i in arr){
+                alert('第'+i+'个东西：'+arr[i]);
+            }*/
+
+            //3,json的for in 循环，
+            for(var i in json){
+                alert('第'+i+'个东西：'+json[i]);
+            }
+
+            /*总结：数组情况下最好用带length的for循环，遇到json时再使用for in循环，不容易出问题。
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

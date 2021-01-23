@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+            window.onload=function(){
+                var oTxt1=document.getElementById('txt1');
+                var oTxt2=document.getElementById('txt2');
+                var oBtn=document.getElementById('btn');
+                oBtn.onclick=function(){
+
+                    //alert(oTxt1.value+oTxt2.value);   此代码会造成两个字符串的练连接，并非数字相加；
+                    
+                    
+                    //以下代码为：显性类型转换    又称：强制类型转换，
+                    //parseInt  由左往右提取数字，在遇到第一个字母时候，会跳出提取字母之前的数字；
+                    //          如果提取中无数字会弹出NaN
+                    //          NaN 全称：not a number  意思：非数字
+                    //parseFloat    提取小数，若无小数便提取整数，平时可直接用该代码
+
+                    
+                    //alert(parseInt(oTxt1.value)+parseInt(oTxt2.value));//因系统默认未字符串，需用parseInt提取数字来进行相加
+                    //  基于此代码内，用数字和字符串相加结果为NaN; 任何数字和NaN相加都会弹出NaN
+                    //  NaN和NaN是不相等的，相加会弹出false;
+                    var n1=parseInt(oTxt1.value);
+                    var n2=parseInt(oTxt2.value);
+                    //isNaN     作用：判断一个函数是否时NaN;
+                    if(isNaN(n1)){
+                        alert('您输入的第一个数字有误');
+                    }
+                    //else if代表另外一种可能性，之后讲解；
+                    else if(isNaN(n2)){
+                        alert('您输入的第二个数字有误');
+                    }
+                    else{
+                        alert(n1+n2);
+                    }
+                }
+            } 
+            
+        </script>
+    </head>
+    <body>
+        <input id='txt1' type='text' />
+        <input id='txt2' type='text' />
+        <input id='btn' type="button" value='求和' />
+
+    </body>
+</html>

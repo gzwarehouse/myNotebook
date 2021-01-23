@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+             
+        </style>
+        <script>
+            window.onload=function(){//因js逐条运行，此代码可在js整体读完后运行
+                var oBtn1=document.getElementById('btn1');
+                var oBtn2=document.getElementById('btn2');
+                var oBtn3=document.getElementById('btn3');
+                var oDiv=document.getElementById('div1');
+                var oIn=oDiv.getElementsByTagName('input');//document可以改为其他元素，相当于在oDiv内提取input
+                
+                oBtn1.onclick=function(){//为第一个按钮增加函数
+                    for(var i=0;i<oIn.length;i++){
+                        oIn[i].checked=true;
+                    }
+                }
+                oBtn2.onclick=function(){
+                    for(var i=0;i<oIn.length;i++){
+                        if(oIn[i].checked==true){
+                            oIn[i].checked=false;
+                        }
+                        else{
+                            oIn[i].checked=true;
+                        }
+                    }
+                }
+                oBtn3.onclick=function(){
+                    for(var i=0;i<oIn.length;i++){
+                        oIn[i].checked=false;
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input id="btn1" type="button" value="全选"  /><br>
+        <input id="btn2" type="button" value="反选"  /><br>
+        <input id="btn3" type="button" value="不选"  /><br>
+            <div id='div1'>
+                <input type="checkbox" /><br>
+                <input type="checkbox" /><br>
+                <input type="checkbox" /><br>
+                <input type="checkbox" /><br>
+                <input type="checkbox" /><br>
+                <input type="checkbox" /><br>
+                <input type="checkbox" /><br>
+                <input type="checkbox" /><br>
+                <input type="checkbox" /><br>
+            </div>    
+    </body>
+</html>

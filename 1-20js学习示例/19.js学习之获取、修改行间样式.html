@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            
+        </style>
+        <script>
+            /*css内有一个函数，函数值为两个时候是获取参数，函数值为三个的时候是设置参数。
+            为此用js做出这个效果来*/
+            /*function css(){
+                if(arguments.length==2){                            //如果可变参长度是2，代表需要获取参数
+                    return arguments[0].style[arguments[1]];        //那么从可变参第0个参数内获取可变参的第一个参数
+                }
+                else{
+                    arguments[0].style[arguments[1]]=arguments[2];  //设置第一个元素的第二个元素的样式，值设置为第三个
+                }
+            }   该代码可用，但为了方便可使用下面代码，将函数内参数提前改名字，之后调用有相同效果，更加便捷*/ 
+            function css(obj, name, value){             
+                if(arguments.length==2){
+                    return obj.style[name];
+                }
+                else{
+                    obj.style[name]=value;
+                }
+            }
+            window.onload=function(){
+                var oDiv=document.getElementById('div1');
+                //alert(css(oDiv,'width'));             获取    通过函数传参获取div内的width
+                css(oDiv,'background','green');       //设置    设置div背景色为绿色
+            }
+        </script>
+    </head>
+    <body>
+        <div id='div1' style="width:200px; height:200px; background:red;"></div>
+    </body>
+</html>

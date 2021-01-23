@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+            window.onload=function(){
+                var oUl=document.getElementById('ul1');
+
+                //1、新建文档碎片
+                var oFrag=document.createDocumentFragment();    //document 文档     fragment 碎片
+
+                //该处为基础的添加元素
+                /*for(i=0;i<10000;i++){
+                    var oLi=document.createElement('li');
+
+                    oUl.appendChild(oLi);
+                }*/
+
+                //2、将文档打包在文档碎片
+                for(i=0;i<10000;i++){
+                    var oLi=document.createElement('li');
+
+                    oFrag.appendChild(oLi);
+                }
+                //3、打包后一次性插入ul中
+                oUl.appendChild(oFrag);
+            }
+        </script>
+    </head>
+    <body>
+        文档碎片原理：比如插入1万个元素，需要一个一个插入，用文档碎片可进行打包插入
+        1、新建文档碎片
+        2、将文档打包在文档碎片
+        3、打包后一次性插入ul中
+
+        实际效果一样，对性能没有太大影响，只有在ie6-8之类低级浏览器有提高左右，后期基本消失，知道就好。
+        <ul id="ul1">
+
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>定时器的开、关</title>
+        <script>
+            //setTimeout的设置和关闭，同理
+            window.onload=function(){
+                var oBtn1=document.getElementById('btn1');
+                var oBtn2=document.getElementById('btn2');
+                var timer=null;     //为指定关闭定时器，新建个变量
+                oBtn1.onclick=function(){   
+                    //因setInterval是存在返回值的，所以返回值用timer变量作为关闭定时器的参数，
+                    timer=setInterval(function(){   //此处用匿名函数写进计时器内，
+                        alert('a');
+                    }, 4000);
+                };
+                oBtn2.onclick=function(){       //关闭定时器时候需要指定关闭的是哪个定时器
+                    clearInterval(timer);
+                };
+            };  
+        </script>
+    </head>
+    <body>
+        <input id='btn1' type="button" value='开启' />
+        <input id='btn2' type='button' value='关闭' />
+    </body>
+</html>

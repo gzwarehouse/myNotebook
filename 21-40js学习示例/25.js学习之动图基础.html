@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            #div1{
+                width:200px;
+                height:200px;
+                background:red;
+                position: absolute;
+                left:200px;
+                top:150px; 
+            }
+            /*offsetLeft能够提取计算后综合运算后的左边距，并可以用于加减乘除。以及offsetTop获取高，offsetWidth/offsetHeight获取计算后的宽高*/
+        </style>
+        <script>
+            /*1、提取div
+              2、利用offsetLeft代码将左边距增加10px
+              3、定时器设置30毫秒一次
+              初步实现滚动效果*/
+            setInterval(function(){
+                var oDiv=document.getElementById('div1');
+                oDiv.style.left=oDiv.offsetLeft+10+'px'; 
+            } ,30)
+        </script>
+    </head>
+    <body>
+        <div id='div1'>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+            window.onload=function(){
+                var oUl=document.getElementById('ul1');
+
+                //alert(oUl.childNodes.length);   //提取出结果为5，内部包括文本节点和元素节点
+                                                    //childNodes在ie6-8之间可直接提取元素节点
+                
+                /*for(var i=0;i<oUl.childNodes.length;i++){
+                    //alert(oUl.childNodes[i].nodeType);  //nodeType  可实现文本为3；元素为1的表现方式
+
+                    if（oUl.childNodes[i].nodeType==1）{
+                        oUl.childNodes[i].style.background='red';
+                    }
+                    //用nodeType得出数字等于1，既为元素节点，用if将选中节点进行改变数据，不会出现不兼容
+                }*/
+                //children只包括元素节点
+                alert(oUl.children.length); //利用alert直接弹出数字为2，代表两个元素节点，可直接使用
+
+            }
+        </script>
+    </head>
+    <body>
+        子节点概念：只计算当下第一层，
+        <ul id="ul1">
+            <li>元素以内为元素节点</li>
+            以外为文本节点
+            <li></li>
+            
+        </ul>
+    </body>
+</html>

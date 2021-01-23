@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+        #div1{
+            width:200px;
+            height:150px;
+            border:1px solid black;
+        }
+        </style>
+        <script>
+            window.onload=function(){
+                var oTxt=document.getElementById('txt1');
+                var aBtn=document.getElementById('btn1');
+                var oDiv=document.getElementById('div1');
+                aBtn.onclick=function(){
+                    oDiv.innerHTML=oTxt.value;  //意思：oDiv里面的HTML赋值为oTxt里的value
+                    //alert(oDiv.innerHTML)     也可以读取div里的内容
+                    //如果给innerHTML赋值时候，如果赋值为html代码，便会替补创建该元素，并非看起来像
+                }
+            }
+
+        
+        </script>
+    </head>
+    <body>
+        <input id='txt1' type='text' />
+        <input id='btn1' type="button" value='改变文字' />
+        <div id='div1'></div>
+    </body>
+</html>

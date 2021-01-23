@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+
+            //1、表格中简写的用法：
+            window.onload=function(){
+                var oTab=document.getElementById("tab1");
+
+                //alert(oTab.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[1]
+                //.getElementsByTagName('td')[1].innerHTML);
+                //alert(oTab.rows.length);
+                //以下是为了获取第一个表格中第二个tr里的第二个td，最基本的写法
+                //alert(oTab.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[1].
+                //getElementsByTagName('td')[1].innerHTML);  
+
+                //tBodies[0]其作用等同于oTab.getElementsByTagName('tbody')[0];
+                //rows[1]=getElementsByTagName('tr')[1]
+                //cells[1]=getElementsByTagName('td')[1]
+                
+                alert(oTab.tBodies[0].rows[1].cells[1].innerHTML);
+            }
+
+            //2、隔行变色特效：
+            /*window.onload=function(){
+                var oTab=document.getElementById('tab1');
+
+                for(var i=0;i<oTab.tBodies[0].rows.length;i++){
+                    if(i%2==0){
+                        oTab.tBodies[0].rows[i].style.background='#ccc';
+                    }
+                    else{
+                        oTab.tBodies[0].rows[i].style.background='';
+                    }
+                }
+
+            }*/
+        </script>
+    </head>
+    <body>
+        一般知识点：表格中有简便操作，因90年带div，css用的人少，主要都在使用表格，所以开发者为表格添加了简便操作；</br>
+                tBodies:提取整个表格组成数组</br>
+                rows:提取整个表格的行组成数组</br>
+                cells:提取整个表格的列组成数组</br>
+                tHead:提取表格头部，因表格只有一个头尾，所以不是数组</br>
+                tFoot：提取表格尾部，因表格只有一个头尾，所以不是数组</br>
+        <table id="tab1" border="1" width="500">    
+            <tbody> <!--tbody可以不写，但文件做出后还是会出现，为了格式准确，养成写上的习惯 -->
+                <thead>
+                    <td>ID</td>
+                    <td>姓名</td>
+                    <td>年龄</td>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td>张三</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>李四</td>
+                    <td>24</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>王五</td>
+                    <td>34</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>张伟</td>
+                    <td>28</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

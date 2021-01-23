@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>操作属性的两种方法</title>
+        <script>
+        function setText(name){
+            var oDiv=document.getElementById('div1');
+            //第一种操作属性的方法‘.’，可理解为‘的’
+            //oDiv.value='随意文字';
+
+            //第二种操作属性的方法‘[]’，
+            //oDiv['value']='随意文字';因输入麻烦，可以var a='value'，oDiv[a]=''随意文字--也可以操作
+            oDiv[name]='随意文字';//利用函数传参也可以达到效果
+            //第二种操作方法的优势，可以改变属性名。有.的地方都可以用[]代替
+            //输入时，字符串需要用‘’，变量不用，
+            //区分：变量内参数会随时改变，字符串输入啥便一直是啥，
+            //此方式可将属性名作为变量传递，以增加用途
+        }
+        </script>
+    </head>
+    <body>
+        <input id='div1' type='text'>
+        <input type="button" value="改变文字" onclick="setText('value')"><!--onclick="setText('title')"此处用title也可改变title内容-->
+    </body>
+</html>

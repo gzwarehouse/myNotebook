@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>选项卡</title>
+        <style>
+            /*设置class为背景黄色*/
+            #div1 .active{
+                background:yellow;
+            }
+            /*div1内所有div设置简单样式并隐藏*/
+            #div1 div{
+                width:200px;
+                height:200px;
+                background:#ccc;
+                border:1px solid #999;
+                display:none;
+            }
+        </style>
+        <script>
+            //方法：1、先让所有都隐藏，
+            //      2、再让当前显示出来
+            window.onload=function(){
+                var oDiv=document.getElementById('div1');
+                var aBtn=oDiv.getElementsByTagName('input');
+                var aDiv=oDiv.getElementsByTagName('div');
+                for(var i=0;i<aBtn.length;i++){     //因为this是指向button的，且因通过html加入的自定义属性，浏览器不认可
+                    aBtn[i].index=i;                //所以通过循环用js为每个按钮添加index自定义属性，可理解为给按钮添加序号   
+                    aBtn[i].onclick=function(){         //为所有按钮添加点击事件
+                        
+                        for(var i=0;i<aBtn.length;i++){
+                            aBtn[i].className='';            //利用for循环，将所有class清空
+                            aDiv[i].style.display='none';    //利用for循环，将所有div都隐藏
+                        }
+                        this.className='active';    //再为当前按钮class赋值
+                        aDiv[this.index].style.display='block';//让第index个div变为block
+                    }
+                }
+            }
+        </script>
+
+    </head>
+    <body>
+        <div id='div1'>
+            <input class='active' type="button" value='教育' />
+            <input type="button" value='培训' />
+            <input type="button" value='招生' />
+            <input type="button" value='出国' />
+            <div style="display:block">111</div>
+            <div>222</div>
+            <div>333</div>
+            <div>444</div>
+
+        </div>
+    </body>
+</html>

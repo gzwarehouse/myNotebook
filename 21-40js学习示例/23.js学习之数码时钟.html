@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href='./js学习之CSS子文件/23.数码时钟.css' />
+        
+        <title></title>
+        <script>
+            function toDou(n){          //该函数作用是在时钟数字小于两位数时候，给前面补一个0；
+                if(n<10){
+                    return '0'+n;   
+                }
+                else{
+                    return ''+n;    //''+n 和空字符串相加的作用是确保返回出去的是字符串；
+                }
+            }
+            window.onload=function(){
+                var aImg=document.getElementsByTagName('img');
+                //var str='347698';   //先建一个字符串，达成更改字符串便可更改图片的目的；
+                function tick(){
+                    
+                    var oDate=new Date();
+
+                    //var str=aDate.getHours()+oDate.getMinutes()+oDate.getSeconds();//如此提取只能出现相加后的数字
+
+                    //该步骤，先将提取出来的时间，用toDou(n)函数进行加0和转换成字符串模式，再进行字符串连接，
+                    //str 此变量只能用字符串才能达到效果。
+                    var str=toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());
+
+                    for(var i=0;i<aImg.length;i++){
+                    //首先达成aImg中第[i]的图片=str第[i]这个数字，然后更改str便可更改图片
+                    aImg[i].src='./js.picture/23.jsClock/img'+str.charAt(i)+'.png';
+                    //因[]不兼容IE7，所以str(i)可用charAt()代替，该代码和[]一个作用，但是都兼容
+                    //console.log(str[i]);
+                    }
+                }
+                setInterval(tick,1000);
+                tick(); //因为定时器需要1秒后运行，刷新页面后会出现停顿1秒，
+                        //所以调用函数以达到随时进入网页，随时运行时钟的效果。
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <img src='./js.picture/23.jsClock/img0.png' />
+            <img src='./js.picture/23.jsClock/img0.png' />
+            ：
+            <img src='./js.picture/23.jsClock/img0.png' />
+            <img src='./js.picture/23.jsClock/img0.png' />
+            ：
+            <img src='./js.picture/23.jsClock/img0.png' />
+            <img src='./js.picture/23.jsClock/img0.png' />
+        </div>
+        
+    </body>
+</html>

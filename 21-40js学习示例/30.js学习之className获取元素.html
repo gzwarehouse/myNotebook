@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+            function getByClass(oParent,sClass){            //oParent决定从哪个父级选参数
+                                                            //sClass告诉函数需要的class是什么
+                
+                var aResult=[];                             //设置空数组，将后面的循环装在里面
+                var aEle=oParent.getElementByTagName('*');  //1、设置提取元素，用通配符，可代表所有标签
+
+                for(var i=0;i<aEle.length;i++){             //2、循环
+                    
+                    if(aEle[i].className.length==sClass){   //3、如果aEle第[i]个元素=传进来的参数，
+                        //return aEle[i]    不能直接返回，一次只能返回第一个
+                        aResult.push(aEle[i]);              //4、把提取的元素放进空数组中
+                    }
+                }
+                return aResult;                             //5、用return返回出去
+            }
+            //应用封装函数：
+
+            window.onload=function(){
+                var oUl=document.getElementById('ul1');
+                var aBox=getByClass(oUl,'box');
+                for(var i=0;i<aBox.length;i++){
+                    aBox[i].style.background='red';
+                }
+            }
+            //不知为何，封装后用后没效果，
+
+            //因类似函数较多以上为封装函数，可直接调用
+            /*window.onload=function(){
+                var oUl=document.getElementById('ul1');
+                var aLi=oUl.getElementsByClassName("box");
+
+                for(var i=0;i<aLi.length;i++){
+                    
+                    if(aLi[i].className=="box"){
+                        aLi[i].style.background='red';
+                    }
+
+                }
+            }*/
+        </script>
+    </head>
+    <body>
+        <ul id="ul1">
+            <li class="box"></li>
+            <li></li>
+            <li class="box"></li>
+            <li class="box"></li>
+            <li></li>
+            <li class="box"></li>
+        </ul>
+    </body>
+</html>

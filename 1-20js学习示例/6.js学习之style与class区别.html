@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            #div1{
+                width:200px;
+                height:200px;
+                border:1px solid black;
+                /*background:red;样式表里添加背景色，在函数中便弹不出来*/
+            }
+            .box{
+                background:red;
+            }
+        </style>
+        <script>
+            //结论：1 style加的样式为行间样式；
+                // 2 style中提取样式，也是从行间提取，
+            function toRed(){
+                var oDiv=document.getElementById('div1');
+                    oDiv.className='box';
+                //oDiv.style.background='red';  通过style添加的为行间样式
+                //alert(oDiv.style.background);  这里能弹出行间样式，
+            }
+            function toGreen(){
+                var oDiv=document.getElementById('div1');
+                    oDiv.style.background='green';
+            }
+            //这个函数中，先点变红再变绿可以，先变绿再变红就不行了，因为变绿添加的是行间样式，变红添加的class，
+            //class优先级比行间样式底
+            //结论：对于一个元素，从头到尾操作style或者class，不要混淆操作，系统不会报错但是无法正常运行。
+        </script>
+    </head>
+    <body>
+        <input type="button" value='变红' onclick='toRed()' />
+        <input type="button" value='变绿' onclick='toGreen()' />
+        <div id='div1' ></div><!--在这里添加此代码，为行间样式style='background:red'可以从函数中弹出，单样式一般不写在行间 -->
+    </body>
+</html>

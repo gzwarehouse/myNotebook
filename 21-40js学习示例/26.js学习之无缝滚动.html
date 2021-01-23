@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            *{
+                margin:0px;
+                padding:0px;
+            }
+            body div{
+                width:1120px;
+                height:408px;
+                background:red;
+                margin:100px auto;      /*设置居中*/
+                position: relative;     /*为div加相对定位，让ul相对div进行移动*/
+                overflow: hidden;
+            }
+            body div ul{
+                position: absolute;     /*为ul加绝对定位，因为基于整个ul进行移动*/
+                left:0px;
+                top:0px;
+                
+            }
+            body div ul li{
+                float:left;
+                width:280px;
+                height:408px;
+                list-style:none;
+            }
+            body div ul li img{
+                width:280px;
+                height:408px;
+            }
+        </style>
+        <script>
+            window.onload=function(){
+                var oDiv=document.getElementById('div1');
+                var oUl=oDiv.getElementsByTagName('ul')[0];
+                var aLi=oUl.getElementsByTagName('li');
+                var toLeft=document.getElementsByTagName('a')[0];
+                var toRight=document.getElementsByTagName('a')[1];
+                var speed=2;
+
+                oUl.innerHTML+=oUl.innerHTML;       //因前面代码走过就显示背景，所以需要加两个ul的代码
+                oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';     //设置ul的宽度为一个li的宽度乘以li的个数的px
+                function move(){           //把定时器存起来，方便鼠标移入暂停
+                    if(oUl.offsetLeft<-oUl.offsetWidth/2){  //因为宽度不可能是负数，所以需要加一个-号，可方便width和left比对
+                        oUl.style.left='0';                 //当发现ul的left<左边整体长度的一半时，left重置为0；
+                    }
+                    if(oUl.offsetLeft>0){
+                        oUl.style.left=-oUl.offsetWidth/2+'px'; //当offsetLeft>0，ul的left=ul的width的一半
+                    }
+                    oUl.style.left=oUl.offsetLeft+speed+'px';   //此代码为ul左边赋值为左边整体长度减掉2px       为了左右调整方便，将2设为变量
+                }
+                
+                
+                var timer=setInterval(move,30)  
+                oDiv.onmousemove=function(){        //当鼠标移入div暂停定时器
+                    clearInterval(timer);
+                }
+                oDiv.onmouseout=function(){         //鼠标移除div打开定时器
+                    timer=setInterval(move,30);
+                }
+
+
+                toLeft.onclick=function(){          //为向左向右添加单机事件，点击向左，speed=-2反之=2，用来调整图片的左右轮播效果；
+                    speed=-2;
+                }
+                toRight.onclick=function(){
+                    speed=2;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <a href="javascript:;">向左</a>
+        <a href="javascript:;">向右</a>
+        <div id='div1'>
+            <ul>
+                <li><img src="js.picture/26.jsToImg/1.jpg"></li>
+                <li><img src="js.picture/26.jsToImg/2.jpg"></li>
+                <li><img src="js.picture/26.jsToImg/3.jpg"></li>
+                <li><img src="js.picture/26.jsToImg/4.jpg"></li>
+            </ul>
+        </div>
+    </body>
+</html>

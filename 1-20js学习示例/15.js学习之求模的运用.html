@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+            window.onload=function(){
+                var aLi=document.getElementsByTagName('li');
+                
+                var iTxt1=document.getElementById('txt1');
+                var iTxt2=document.getElementById('txt2');
+                var oBtn=document.getElementById('btn');
+                
+                //利用求模将秒转换为分秒
+                oBtn.onclick=function(){
+                    iTxt2.value=(parseInt(iTxt1.value/60)+'分'+parseInt(iTxt1.value%60)+'秒');
+                    
+                }
+
+
+                for(var i=0;i<aLi.length;i++){
+                    if(i%2==0){
+                        aLi[i].style.background='#CCC';//求余等于0便是偶数，添加颜色实现隔行添色效果
+                    }
+                    else{
+                        aLi[i].style.background='';//否则就是奇数
+                    }
+                }
+                
+            }
+        </script>
+    </head>
+    <body>
+        <input id='txt1' type='text' />
+        <input id='btn' type='button' value='秒转时间' />
+        <input id='txt2' type='text' />
+
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </body>
+</html>

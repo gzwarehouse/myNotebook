@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            #div1{
+                width:200px; 
+                height:200px; 
+                background:red;
+            }
+        </style>
+        <script>
+            //为了方便可以提前封装成一个函数以便后期调用；
+            function getStyle(obj,name){
+                if(obj.currentStyle.width){
+                    return obj.currentStyle.width;
+                }
+                else{
+                    return getComputedStyle(obj,false)[name];
+                }
+            }
+            window.onload=function(){
+                var oDiv=document.getElementById('div1');
+                alert(getStyle(oDiv,width));        //可使用封装函数更简便
+                //css内有两种样式：1复合样式：比如background有背景颜色，背景宽度之类
+                                 //2单一样式：比如width，
+                                 //在该函数调用时候，目前只能使用单一样式。若想调用可使用backgroundColor;
+            }       
+            /*
+            window.onload=function(){
+                var oDiv=document.getElementById('div1');
+                //js第二定律，但凡是好东西，肯定不兼容；
+                //alert(oDiv.currentStyle.width);        currentStyle只兼容IE，不兼容别的；
+                //getComputedStyle        解释：计算后的样式
+                //alert(getComputedStyle(oDiv,false).width);      在IE7下不兼容
+                //getComputedStyle后面第一个参数是需要某个物体样式的参数，第二个参数随意放个代码，都可以；
+                if(oDiv.currentStyle.width){
+                    alert(oDiv.currentStyle.width);
+                }
+                else{
+                    alert(getComputedStyle(oDiv,false).width);
+                }
+                //js里百分之九十九的兼容问题都是用if else处理；
+            }
+            */
+            
+        </script>
+    </head>
+    <body>
+        <div id='div1'></div>
+    </body>
+</html>

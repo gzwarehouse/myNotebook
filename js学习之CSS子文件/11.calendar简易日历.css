@@ -1,0 +1,83 @@
+
+body{
+    display:flex;
+    flex-direction:column;
+    align-items:center; 
+}
+#tab{
+    width:200px;
+    background:#d3d3d3;
+    margin:50px 0px;
+    padding:10px 10px;
+    
+    
+          
+}
+#tab .calendar{
+    width:200px;
+    margin:0px;
+    padding:0px;
+    
+    display:flex;
+    direction:row;
+    justify-content: center;
+    flex-wrap:wrap;     /*排列水平，换行第一行在上*/
+}
+#tab .calendar .active{
+    color:#DC143C;
+    background:white;
+    border:1px solid black; 
+    margin:4px;
+}
+#tab .calendar li{
+    list-style-type: none;
+    width:50px;
+    height:50px;
+    margin:5px;
+    font-size:13px;
+    color:white;
+    background:#8B4513;;
+    border:1px ;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;  
+}
+#tab .calendar li h2{       /*设置字体大小，颜色不能在此处，否则active无法修改颜色，*/
+    display:inline;
+    margin:0px;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+
+}
+#tab .calendar li p{
+    margin:0px;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+}
+#tab .text{
+    background:#f5f5f5; 
+    width:170px;
+    height:100px;
+    margin-left:15px;
+
+    
+    }
+#tab .text input{
+    width:170px;
+    height:100px;
+    background:#f5f5f5; 
+    border:none;
+    
+}
+#tab .text h2{
+    margin:0px;
+    font-size:15px;
+    background:#f5f5f5;
+}
+#tab .text p{
+    margin:0px;
+    font-size:13px;
+    background:#f5f5f5;
+} 

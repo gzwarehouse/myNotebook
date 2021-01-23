@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+            window.onload=function(){
+                var oBtn=document.getElementById('btn1');
+                var oUl=document.getElementById('ul1');
+                var oTxt=document.getElementById('txt1');
+                //1、该函数目的，将子节点添加至指定的父级
+                /*oBtn.onclick=function(){
+                    var oLi=document.createElement('li');   //createElement（'参数名'）用于创建参数，
+                    //创建好的元素系统不知放在何处，
+                    //用“父级.appendChild（子节点）”为选定oUl添加子节点，确定添加节点的位置 
+                    oUl.appendChild(oLi);
+                }*/
+
+                //2、该函数目的：在以上的基础上为新创建li中添加指定文字
+                /*oBtn.onclick=function(){
+                    var oLi=document.createElement('li');   
+                    
+                    oLi.innerHTML=oTxt.value;   
+                    
+                    oUl.appendChild(oLi);
+                }*/
+
+                //3、该函数目的：将新建元素插入所有已建元素之前
+                oBtn.onclick=function(){
+                    var oLi=document.createElement('li'); 
+                    var aLi=document.getElementsByTagName('li');    //新建一个li数组
+                    oLi.innerHTML=oTxt.value;   
+
+                    
+                    //oUl.insertBefore(oLi,aLi[0]);   //此处因原本无li，在ie中不兼容，需要用if进行调整
+                    if(aLi.length>0){
+
+                        //父级.insertBefore(新插入li，原有li)/意思：在原有li之前插入新li
+                        oUl.insertBefore(oLi,aLi[0]);   
+                    }
+                    else{
+                        oUl.appendChild(oLi);
+                    }
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <input id="txt1" type="text" >
+        <input id='btn1' type="button" value="创建li"> 
+        <ul id="ul1">
+        </ul>
+    </body>
+</html>
